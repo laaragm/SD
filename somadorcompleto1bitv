@@ -1,0 +1,12 @@
+module somadorcompleto1bit(A0, B0, TE, S, TS, display);
+
+input A0, B0, TE;
+output S, TS;
+output [0:6] display;
+
+assign S = A0^B0^TE;
+assign TS = (A0&B0)|(B0&TE)|(A0&TE);
+
+decodificador7s bloco0({2'b00,TS,S}, display);
+
+endmodule
